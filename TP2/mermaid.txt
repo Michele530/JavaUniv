@@ -34,7 +34,7 @@ classDiagram
         Data : NodeData
     }
 
-    %% Contient les datas d'une node
+    %% Contient les datas d'un node
     class NodeData{
         Name : string
         Desc : string
@@ -79,7 +79,7 @@ classDiagram
         execute() : void
     }
 
-    %% Calcul et retourne le degré d'une Node (sommet)
+    %% Calcul et retourne le degré d'un node (sommet)
     class Degree{
         targetNode : Node
         execute() : void
@@ -94,7 +94,7 @@ classDiagram
         getPath() : List Node
     }
 
-    %% Calcul et retourne le nombre de voisin d'une node (sommet)
+    %% Calcul et retourne le nombre de voisin d'un node (sommet)
     class Neighbours{
         targetNode : Node
         execute() : void
