@@ -1,0 +1,130 @@
+classDiagram
+    %% === Classes ===
+    %% Graphe principal
+    class Graph{
+        type : OrientationType
+        Nb_nodes : int
+        Nb_edges : int
+        Nodes_list : Node list
+        Edges_list : Edge list
+
+        addNode(Node) : void
+        delNode(Node) : void
+        %% Pas de A --> A (même point)
+        %% Pas de multi-arêtes (poids plutôt)
+        addEdge(Edge) : void
+        addEdge(Node n1, Node n2) : void
+        addEdge(Node n1, Node n2, boolean oriented) : void
+        delEdge(Edge) : void
+        delEdge(Node n1, Node n2) : void
+        %% Mettre un warning si jamais il contient une arête orienté et qu'on le change en non orienté
+        changeOrientation(OrientationType) : void
+    }
+
+    %% Ajout d'une énumération pour les 3 types différents
+    class OrientationType{
+        <<enumeration>>
+        DIRECTED
+        UNDIRECTED
+        MIXED
+    }
+    
+    %% Classe node (sommet) qui contient un objet Data pour pouvoir traiter différents types de données
+    class Node{
+        Data : NodeData
+    }
+
+    %% Contient les datas d'une node
+    class NodeData{
+        Name : string
+        Desc : string
+        ID : int
+
+        setDesc(string) : void
+        setName(string) : void
+    }
+    
+    %% Classe Edge (arête), possède les points qui les relient ainsi que le poids, l'orientation et une potentielle description
+    class Edge{
+        Node1 : Node
+        Node2 : Node
+        Weight : int
+        Oriented : bool
+        Desc : string
+
+        setOrientation(bool) : void
+        setDesc(string) : void
+        setWeight(int) : void
+    }
+
+    %% Classe abstraite qui permet dissocier la classe Graph des algoritmes
+    class GraphAlgorithm{
+        <<abstract>>
+        graph : Graph
+        result : Object
+
+        execute() : void
+        getResult() : Object
+    }
+
+    %% Méthode de parcours en largeur du graphe
+    class BFS{
+        startNode : Node
+        execute() : void
+    }
+
+    %% Méthode de parcours en profondeur du graphe
+    class DFS{
+        startNode : Node
+        execute() : void
+    }
+
+    %% Calcul et retourne le degré d'une Node (sommet)
+    class Degree{
+        targetNode : Node
+        execute() : void
+        getDegree() : int
+    }
+
+    %% Recherche et retourne le plus court chemin entre deux nodes (sommets)
+    class ShortestPath{
+        startNode : Node
+        endNode : Node
+        execute() : void
+        getPath() : List Node
+    }
+
+    %% Calcul et retourne le nombre de voisin d'une node (sommet)
+    class Neighbours{
+        targetNode : Node
+        execute() : void
+        getNeighbours() : List Node
+    }
+    
+
+    %% à pour but de charger ou enregistrer un graph
+    class GraphIO {
+        loadFromEdgeList(string filePath ) : Graph
+        saveToEdgeList(Graph, string filePath) : void
+        loadFromAdjacencyList(string filePath) : Graph
+        saveToAdjacencyList(Graph, string filePath) : void
+    }
+
+
+
+
+    %% === Relations ===
+    Graph --> OrientationType : De type
+    Graph "1" --> "0..*" Node : contient
+    Graph "1" --> "0..*" Edge : contient
+    Edge "1" -- "2" Node : relie
+    Node "1" --> "1" NodeData : possède
+
+    Graph --> GraphAlgorithm : Abstraction
+    GraphAlgorithm <|-- BFS
+    GraphAlgorithm <|-- DFS
+    GraphAlgorithm <|-- Degree
+    GraphAlgorithm <|-- ShortestPath
+    GraphAlgorithm <|-- Neighbours
+
+    GraphIO ..> Graph : utilise
