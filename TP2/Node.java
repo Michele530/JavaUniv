@@ -11,6 +11,16 @@ public class Node {
     }
 
     // Constructeur en définissant la data
+    public Node(int id) {
+        this.data = new NodeData(id, "", "");
+    }
+
+    // Constructeur en définissant la data
+    public Node(int id, String name) {
+        this.data = new NodeData(id, name, "");
+    }
+
+    // Constructeur en définissant la data
     public Node(int id, String name, String desc) {
         this.data = new NodeData(id, name, desc);
     }

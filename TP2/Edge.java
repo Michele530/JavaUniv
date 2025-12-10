@@ -18,6 +18,15 @@ public class Edge {
         this(n1, n2, 1, orient, "");
     }
 
+    public Edge(Node n1, Node n2, int weight, boolean oriented) {
+        if (n1 == null || n2 == null) throw new NullPointerException("Nodes cannot be null");
+        if (n1.getId() == n2.getId()) throw new IllegalArgumentException("Self-loop not allowed (node1 == node2)");
+        this.node1 = n1;
+        this.node2 = n2;
+        this.weight = weight;
+        this.oriented = oriented;
+    }
+
     public Edge(Node n1, Node n2, int weight, boolean oriented, String desc) {
         if (n1 == null || n2 == null) throw new NullPointerException("Nodes cannot be null");
         if (n1.getId() == n2.getId()) throw new IllegalArgumentException("Self-loop not allowed (node1 == node2)");
