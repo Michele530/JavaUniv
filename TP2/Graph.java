@@ -23,12 +23,14 @@ public class Graph {
         if (newType == OrientationType.UNDIRECTED) {
             boolean hasOriented = edges.stream().anyMatch(Edge::isOriented); // Pour chaque edge, on check si elle est orientée
             if (hasOriented) {
-                System.err.println("Warning: le graphe contient des arêtes orientées, mais vous passez en UNDIRECTED (non orientée). Aucune conversion automatique ne sera faite.");
+                System.err.println("Warning: le graphe contient des arêtes orientées, mais vous passez en UNDIRECTED (non orientée). Le changement n'a donc pas été effectué.");
+                return;
             }
         } else if (newType == OrientationType.DIRECTED) {
             boolean hasNonOriented = edges.stream().anyMatch(e -> !e.isOriented()); // Pour chaque edge, on check si elle est non orientée
             if (hasNonOriented) {
-                System.err.println("Warning: le graphe contient des arêtes non orientées, mais vous passez en DIRECTED (orientée). Aucune conversion automatique ne sera faite.");
+                System.err.println("Warning: le graphe contient des arêtes non orientées, mais vous passez en DIRECTED (orientée). Le changement n'a donc pas été effectué.");
+                return;
             }
         }
 
