@@ -108,6 +108,16 @@ public class Graph {
         return addEdge(e);
     }
 
+    public boolean addEdge(Node n1, Node n2, boolean oriented, int weight) {
+        Edge e = new Edge(n1, n2, weight, oriented, "");
+        return addEdge(e);
+    }
+
+    public boolean addEdge(Node n1, Node n2, boolean oriented, int weight, String desc) {
+        Edge e = new Edge(n1, n2, weight, oriented, desc);
+        return addEdge(e);
+    }
+
     public boolean delEdge(Edge e) {
         if (e == null) return false;
         if (!edges.remove(e)) return false;
