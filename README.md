@@ -15,5 +15,5 @@ Ajout de tests unitaire.
 ### 7/01/2026 :
 Ajout de l'algorithme de Dijkstra (+ tests des algos DFS et BFS)
 
-Brouillon pour illustrer le test de A à H (validé par les Tests)
+Brouillon (à refaire) pour illustrer le test de A à H (validé par les Tests)
 ![Diagramme de classe](TP2/brouillonTestDijkstra.png)
