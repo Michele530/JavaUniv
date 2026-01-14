@@ -1,5 +1,7 @@
 # JavaUniv
 
+Faire "make all" pour compiler tout les fichiers
+
 ### 4/12/2025 :
 Création d'un diagramme de classe UML précis et complet du TP2.  
 Ainsi que les classes en java (environ 80% achevé), ne devrais pas trop diférer du résultat final 
@@ -22,6 +24,6 @@ Brouillon (à refaire) pour illustrer le test de A à H (validé par les Tests)
 ### 14/01/2026 :
 Mise en ordre des fichiers dans des dossiers (algo, asset...) pour avoir une structure propre
 
-Changement de la manière de typer le graphe. J'avais mis un énum type plutôt que des sous-classes. Maintenant il y a des sous classes correspondantes aux types
+Changement de la manière de typer le graphe. J'avais mis un énum type plutôt que des sous-classes. Maintenant il y a des sous classes correspondantes aux types. (Les tests ont été modifiés)
 
 Optimisation de méthodes
