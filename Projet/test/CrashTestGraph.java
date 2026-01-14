@@ -1,7 +1,17 @@
-package TP2;
+package Projet.test;
 
 import java.util.List;
 import java.util.Map;
+
+import Projet.algo.BFS;
+import Projet.algo.DFS;
+import Projet.algo.Dijkstra;
+import Projet.graph.Edge;
+import Projet.graph.Graph;
+import Projet.graph.OrientationType;
+import Projet.graph.Node.Node;
+
+// Deuxième phase de tests
 
 // Crash tests (normalement tout se passe bien)
 public class CrashTestGraph {

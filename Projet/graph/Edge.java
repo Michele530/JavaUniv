@@ -1,6 +1,8 @@
-package TP2;
+package Projet.graph;
 
 import java.util.Objects;
+
+import Projet.graph.Node.Node;
 
 
 public class Edge {

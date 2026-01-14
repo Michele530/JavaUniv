@@ -1,6 +1,10 @@
-package TP2;
+package Projet.algo;
 
 import java.util.*;
+
+import Projet.graph.Edge;
+import Projet.graph.Graph;
+import Projet.graph.Node.Node;
 
 public class Dijkstra extends GraphAlgorithm {
 

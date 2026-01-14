@@ -1,4 +1,4 @@
-package TP2;
+package Projet.graph;
 
 public enum OrientationType {
     DIRECTED,

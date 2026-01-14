@@ -1,6 +1,8 @@
-package TP2;
+package Projet.graph;
 
 import java.util.*;
+
+import Projet.graph.Node.Node;
 
 public class Graph {
     private OrientationType type;

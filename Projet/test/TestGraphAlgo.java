@@ -1,6 +1,15 @@
-package TP2;
+package Projet.test;
 
 import java.util.List;
+
+import Projet.algo.BFS;
+import Projet.algo.DFS;
+import Projet.algo.ShortestPath;
+import Projet.graph.Graph;
+import Projet.graph.OrientationType;
+import Projet.graph.Node.Node;
+
+// Première phase de tests
 
 public class TestGraphAlgo {
     public static void main(String[] args) {

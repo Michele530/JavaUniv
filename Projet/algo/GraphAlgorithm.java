@@ -1,4 +1,6 @@
-package TP2;
+package Projet.algo;
+
+import Projet.graph.Graph;
 
 public abstract class GraphAlgorithm {
     protected Graph graph;   // Le graphe sur lequel l'algorithme va s'exécuter

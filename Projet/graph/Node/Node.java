@@ -1,4 +1,4 @@
-package TP2;
+package Projet.graph.Node;
 
 import java.util.Objects;
 

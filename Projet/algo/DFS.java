@@ -1,6 +1,9 @@
-package TP2;
+package Projet.algo;
 
 import java.util.*;
+
+import Projet.graph.Graph;
+import Projet.graph.Node.Node;
 
 public class DFS extends GraphAlgorithm {
     private Node startNode;
