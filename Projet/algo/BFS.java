@@ -2,8 +2,8 @@ package Projet.algo;
 
 import java.util.*;
 
-import Projet.graph.Graph;
-import Projet.graph.Node.Node;
+import Projet.graphe.Graph;
+import Projet.graphe.node.Node;
 
 public class BFS extends GraphAlgorithm {
     private Node startNode;

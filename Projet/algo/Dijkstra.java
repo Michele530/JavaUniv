@@ -2,9 +2,9 @@ package Projet.algo;
 
 import java.util.*;
 
-import Projet.graph.Edge;
-import Projet.graph.Graph;
-import Projet.graph.Node.Node;
+import Projet.graphe.Edge;
+import Projet.graphe.Graph;
+import Projet.graphe.node.Node;
 
 public class Dijkstra extends GraphAlgorithm {
 

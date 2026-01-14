@@ -1,6 +1,6 @@
 package Projet.algo;
 
-import Projet.graph.Graph;
+import Projet.graphe.Graph;
 
 public abstract class GraphAlgorithm {
     protected Graph graph;   // Le graphe sur lequel l'algorithme va s'exécuter

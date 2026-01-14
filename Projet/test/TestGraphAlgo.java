@@ -5,15 +5,15 @@ import java.util.List;
 import Projet.algo.BFS;
 import Projet.algo.DFS;
 import Projet.algo.ShortestPath;
-import Projet.graph.Graph;
-import Projet.graph.OrientationType;
-import Projet.graph.Node.Node;
+import Projet.graphe.Graph;
+import Projet.graphe.graphe_type.UndirectedGraph; 
+import Projet.graphe.node.Node;
 
 // Première phase de tests
-
 public class TestGraphAlgo {
     public static void main(String[] args) {
-        Graph g = new Graph(OrientationType.UNDIRECTED);
+        // Au lieu de "new Graph(...)", on utilise la sous-classe
+        Graph g = new UndirectedGraph();
 
         // --- Création des nœuds ---
         Node[] nodes = new Node[15];

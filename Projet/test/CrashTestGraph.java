@@ -6,17 +6,15 @@ import java.util.Map;
 import Projet.algo.BFS;
 import Projet.algo.DFS;
 import Projet.algo.Dijkstra;
-import Projet.graph.Edge;
-import Projet.graph.Graph;
-import Projet.graph.OrientationType;
-import Projet.graph.Node.Node;
+import Projet.graphe.Edge;
+import Projet.graphe.Graph;
+import Projet.graphe.graphe_type.MixedGraph;
+import Projet.graphe.node.Node;
 
 // Deuxième phase de tests
-
-// Crash tests (normalement tout se passe bien)
 public class CrashTestGraph {
     public static void main(String[] args) {
-        Graph g = new Graph(OrientationType.MIXED);
+        Graph g = new MixedGraph();  // Graphe MIXED
         boolean result;
 
         // --- Test 1 : Ajouter un nœud null ---
@@ -37,20 +35,20 @@ public class CrashTestGraph {
         // --- Test 3 : Ajouter une arête avec un nœud absent ---
         try {
             Node nX = new Node(99, "X");
-            g.addEdge(n1, nX);
+            g.addEdge(n1, nX, 1, "", false);
             System.out.println("Test 3 : FAILED (arête avec nœud absent acceptée)");
         } catch (IllegalArgumentException e) {
             System.out.println("Test 3 : PASSED (arête avec nœud absent rejetée)");
         }
 
-        // --- Test 4 : Ajouter une arête normale ---
+        // --- Test 4 : Ajouter une arête normale via Edge ---
         Edge e1 = new Edge(n1, n2, 1, false, "");
-        result = g.addEdge(e1);
+        result = ((MixedGraph) g).addEdge(e1);
         System.out.println("Test 4 : " + (result ? "PASSED" : "FAILED") + " (arête A-B ajoutée)");
 
         // --- Test 5 : Ajouter la même arête encore une fois (poids incrémenté) ---
         Edge e1dup = new Edge(n1, n2, 2, false, "");
-        g.addEdge(e1dup);
+        ((MixedGraph) g).addEdge(e1dup);
         result = e1.getWeight() == 3;
         System.out.println("Test 5 : " + (result ? "PASSED" : "FAILED") + " (poids de l'arête A-B = " + e1.getWeight() + ")");
 
@@ -73,8 +71,8 @@ public class CrashTestGraph {
         }
 
         // --- Test 9 : Ajouter arêtes orientées et non orientées ---
-        g.addEdge(n2, n3, true);
-        g.addEdge(n1, n3, false);
+        g.addEdge(n2, n3, 1, "", true);   // orientée
+        g.addEdge(n1, n3, 1, "", false);  // non orientée
 
         result = g.getEdges().stream().anyMatch(e -> e.connects(n2, n3) && e.isOriented()) &&
                  g.getEdges().stream().anyMatch(e -> e.connects(n1, n3) && !e.isOriented());
@@ -86,7 +84,7 @@ public class CrashTestGraph {
         // =======================
         System.out.println("\nTest 10 : Grand graphe DFS / BFS");
 
-        Graph g2 = new Graph(OrientationType.MIXED);
+        Graph g2 = new MixedGraph();
 
         // Création des nœuds
         Node a = new Node(1, "A");
@@ -108,38 +106,34 @@ public class CrashTestGraph {
         g2.addNode(gNode);
         g2.addNode(h);
 
-        // Connexions (graphe avec branches + cycle)
-        g2.addEdge(a, b, false, 10);
-        g2.addEdge(a, c, false, 5);
-        g2.addEdge(b, d, false, 50);
-        g2.addEdge(b, e, false, 150);
-        g2.addEdge(c, f, false, 999);
-        g2.addEdge(a, f, false, 30);
-        g2.addEdge(e, f, false, 65); 
-        g2.addEdge(e, c, false, 1); 
-        g2.addEdge(f, gNode, false, 70);
-        g2.addEdge(gNode, h, false, 1);
+        // Connexions avec la bonne surcharge (Node, weight, name, oriented)
+        g2.addEdge(a, b, 10, "", false);
+        g2.addEdge(a, c, 5, "", false);
+        g2.addEdge(b, d, 50, "", false);
+        g2.addEdge(b, e, 150, "", false);
+        g2.addEdge(c, f, 999, "", false);
+        g2.addEdge(a, f, 30, "", false);
+        g2.addEdge(e, f, 65, "", false);
+        g2.addEdge(e, c, 1, "", false);
+        g2.addEdge(f, gNode, 70, "", false);
+        g2.addEdge(gNode, h, 1, "", false);
 
         // Affichage
         g2.printNodes();
         g2.printEdges();
-        
+
         // --- DFS ---
         DFS dfs = new DFS(g2, a);
         dfs.execute();
         System.out.println("DFS ordre de visite :");
-        for (Node n : dfs.getVisitOrder()) {
-            System.out.print(n.getId() + " ");
-        }
+        for (Node n : dfs.getVisitOrder()) System.out.print(n.getId() + " ");
         System.out.println();
 
         // --- BFS ---
         BFS bfs = new BFS(g2, a);
         bfs.execute();
         System.out.println("BFS ordre de visite :");
-        for (Node n : bfs.getVisitOrder()) {
-            System.out.print(n.getId() + " ");
-        }
+        for (Node n : bfs.getVisitOrder()) System.out.print(n.getId() + " ");
         System.out.println();
 
         // --- Dijkstra ---
@@ -148,22 +142,18 @@ public class CrashTestGraph {
 
         System.out.println("Distances depuis A :");
         for (Map.Entry<Node, Integer> entry : dijkstra.getDistances().entrySet()) {
-            System.out.println(entry.getKey().getId()+ " -> " + entry.getValue());
+            System.out.println(entry.getKey().getId() + " -> " + entry.getValue());
         }
 
         List<Node> path = dijkstra.getShortestPath(h);
         System.out.println("Chemin le plus court A -> H :");
 
         int total = 0;
-
         for (int i = 0; i < path.size(); i++) {
             Node current = path.get(i);
             System.out.print(current.getId());
-
             if (i < path.size() - 1) {
                 Node next = path.get(i + 1);
-
-                // retrouver l'arête entre current et next
                 Edge edgeUsed = null;
                 for (Edge ed : g2.getEdges()) {
                     if (ed.connects(current, next)) {
@@ -171,7 +161,6 @@ public class CrashTestGraph {
                         break;
                     }
                 }
-
                 if (edgeUsed != null) {
                     int w = edgeUsed.getWeight();
                     total += w;
@@ -181,8 +170,6 @@ public class CrashTestGraph {
                 }
             }
         }
-
         System.out.println("\nPoids total = " + total);
-
     }
 }
