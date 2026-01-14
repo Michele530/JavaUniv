@@ -13,7 +13,7 @@ public class MixedGraph extends Graph {
         return "Mixed Graph";
     }
 
-        @Override
+    @Override
     public boolean addEdge(Node n1, Node n2, int weight, String name, boolean oriented) {
         Edge e = new Edge(n1, n2, weight, oriented, name);
         edges.add(e);

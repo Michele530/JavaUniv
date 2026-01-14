@@ -15,9 +15,19 @@ public class DirectedGraph extends Graph {
 
     @Override
     public boolean addEdge(Node n1, Node n2, int weight, String name, boolean oriented) {
-        if (!oriented) throw new IllegalArgumentException("DirectedGraph ne peut contenir que des arêtes orientées");
+        if (n1 == null || n2 == null || !nodesById.containsKey(n1.getId()) || !nodesById.containsKey(n2.getId()))
+            throw new IllegalArgumentException("Both nodes must exist in the graph");
+
+        if (!oriented) throw new IllegalArgumentException("DirectedGraph must have oriented edges");
+
+        Edge existing = edgeMap.getOrDefault(n1.getId(), Map.of()).get(n2.getId());
+        if (existing != null) {
+            existing.addWeight(weight);
+            return true;
+        }
 
         Edge e = new Edge(n1, n2, weight, true, name);
+
         edges.add(e);
 
         adjacency.putIfAbsent(n1.getId(), new HashSet<>());
@@ -30,6 +40,7 @@ public class DirectedGraph extends Graph {
 
         return true;
     }
+
 
     // Versions courtes appellent la version complète
     @Override

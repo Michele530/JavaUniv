@@ -15,9 +15,20 @@ public class UndirectedGraph extends Graph {
 
     @Override
     public boolean addEdge(Node n1, Node n2, int weight, String name, boolean oriented) {
-        if (oriented) throw new IllegalArgumentException("UndirectedGraph ne peut contenir que des arêtes non orientées");
+        if (n1 == null || n2 == null || !nodesById.containsKey(n1.getId()) || !nodesById.containsKey(n2.getId()))
+            throw new IllegalArgumentException("Both nodes must exist in the graph");
+
+        if (oriented) throw new IllegalArgumentException("UndirectedGraph cannot have oriented edges");
+
+        // Vérifier si l'arête existe déjà
+        Edge existing = edgeMap.getOrDefault(n1.getId(), Map.of()).get(n2.getId());
+        if (existing != null) {
+            existing.addWeight(weight);
+            return true;
+        }
 
         Edge e = new Edge(n1, n2, weight, false, name);
+
         edges.add(e);
 
         adjacency.putIfAbsent(n1.getId(), new HashSet<>());
@@ -26,8 +37,8 @@ public class UndirectedGraph extends Graph {
         adjacency.get(n2.getId()).add(e);
 
         edgeMap.putIfAbsent(n1.getId(), new HashMap<>());
-        edgeMap.putIfAbsent(n2.getId(), new HashMap<>());
         edgeMap.get(n1.getId()).put(n2.getId(), e);
+        edgeMap.putIfAbsent(n2.getId(), new HashMap<>());
         edgeMap.get(n2.getId()).put(n1.getId(), e);
 
         return true;
