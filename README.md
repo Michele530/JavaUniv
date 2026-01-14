@@ -1,6 +1,8 @@
 # JavaUniv
 
-Faire "make all" pour compiler tout les fichiers
+## Utilisation :
+"make all" pour compiler tout les fichiers .java
+"make clean" pour nettoyer les fichiers en .class
 
 ### 4/12/2025 :
 Création d'un diagramme de classe UML précis et complet du TP2.  
