@@ -21,3 +21,7 @@ Brouillon (à refaire) pour illustrer le test de A à H (validé par les Tests)
 
 ### 14/01/2026 :
 Mise en ordre des fichiers dans des dossiers (algo, asset...) pour avoir une structure propre
+
+Changement de la manière de typer le graphe. J'avais mis un énum type plutôt que des sous-classes. Maintenant il y a des sous classes correspondantes aux types
+
+Optimisation de méthodes

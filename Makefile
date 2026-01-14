@@ -1,14 +1,14 @@
-# Makefile pour TP2
+# Makefile pour TP2 - version récursive
 
 # Dossiers
 SRC_DIR := .
 BIN_DIR := bin
 
 # Packages
-PKG := TP2
+PKG := Projet
 
-# Classes à compiler
-SOURCES := $(wildcard $(SRC_DIR)/$(PKG)/*.java)
+# Classes à compiler (récursivement)
+SOURCES := $(shell find $(SRC_DIR)/$(PKG) -name "*.java")
 CLASSES := $(patsubst $(SRC_DIR)/%.java,$(BIN_DIR)/%.class,$(SOURCES))
 
 # Commandes
@@ -24,7 +24,7 @@ all: $(CLASSES)
 
 # Compiler les .java dans bin/
 $(BIN_DIR)/%.class: $(SRC_DIR)/%.java
-	@mkdir -p $(BIN_DIR)/$(PKG)
+	@mkdir -p $(dir $@)
 	$(JAVAC) -d $(BIN_DIR) $<
 
 # Exécuter le test
