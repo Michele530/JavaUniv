@@ -4,6 +4,13 @@
 "make all" pour compiler tout les fichiers .java  
 "make clean" pour nettoyer les fichiers en .class  
 
+```bash
+make clean
+make all
+java -cp bin/ Projet.test.CrashTestGraph # for testing CrashTestGraph
+java -cp bin/ Projet.test.TestGraphAlgo # for testing TestGraphAlgo
+```
+
 ### 4/12/2025 :
 Création d'un diagramme de classe UML précis et complet du TP2.  
 Ainsi que les classes en java (environ 80% achevé), ne devrais pas trop diférer du résultat final 
