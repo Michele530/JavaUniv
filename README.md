@@ -1,15 +1,33 @@
-# JavaUniv
+## Version
 
-## Utilisation :
-"make all" pour compiler tout les fichiers .java  
-"make clean" pour nettoyer les fichiers en .class  
+### Version de Java
+```bash
+openjdk 21.0.8 2025-07-15
+OpenJDK Runtime Environment (build 21.0.8+9-Ubuntu-0ubuntu124.04.1)
+OpenJDK 64-Bit Server VM (build 21.0.8+9-Ubuntu-0ubuntu124.04.1, mixed mode, sharing)
+```
+
+### Version du compilateur
+```bash
+javac 16.0.2
+```
+
+## Installation / Setup
+
+Pour installer et configurer le projet :
 
 ```bash
-make clean
-make all
-java -cp bin/ Projet.test.CrashTestGraph # for testing CrashTestGraph
-java -cp bin/ Projet.test.TestGraphAlgo # for testing TestGraphAlgo
+./setup_projet.sh
 ```
+
+## Exécution des tests
+
+Pour compiler et lancer le projet :
+
+```bash
+./run_tests.sh
+```
+
 
 ### 4/12/2025 :
 Création d'un diagramme de classe UML précis et complet du TP2.  
