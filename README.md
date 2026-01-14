@@ -22,7 +22,7 @@ Pour installer et configurer le projet :
 
 ## Exécution des tests
 
-Pour compiler et lancer le projet :
+Pour tester le projet :
 
 ```bash
 ./run_tests.sh
