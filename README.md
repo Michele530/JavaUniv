@@ -65,3 +65,10 @@ Voici une vidéo qui illustre une éxécution possible de SafeLogistic avec Java
 - 🟢 Vert : Client
 - ⚪ Gris : Route (plus c'est gris, plus le chemin est long)
 - 🟡 Jaune : Zones non accessibles
+
+
+### Amélioration possible du projet
+- Utilisation de Maven ou Gradle (plus simple pour gérer les librairies et le setup du projet côté utilisateur).  
+- Augmenter le réalisme de la simulation SafeLogistic : prendre en compte le temps de préparation des restaurants, le trafic routier, le retour des livreurs au dépôt, plusieurs livreurs simultanément, ainsi que d’autres fonctionnalités possibles.  
+- Avoir des algorithmes de recherche plus performants et optimisés.  
+- Implémenter un système de sauvegarde et d’importation de fichiers.
