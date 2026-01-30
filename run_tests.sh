@@ -21,3 +21,6 @@ java -cp "$BIN_DIR" Projet.test.LocationNodeTest
 echo ""
 echo "=== Lancement du test DeliveryManagerTest ==="
 java -cp "$BIN_DIR" Projet.test.DeliveryManagerTest
+
+echo "=== Lancement du DeliveryVisualizerTest (JavaFX) ==="
+java --module-path "$PROJECT_DIR/Projet/javafx-sdk-25/lib" --add-modules javafx.controls,javafx.graphics -cp "$BIN_DIR" Projet.ui.DeliveryVisualizerTest

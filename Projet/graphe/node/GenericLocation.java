@@ -6,6 +6,14 @@ public class GenericLocation extends LocationNode {
         super(id, name, "", x, y); // <- utilise le constructeur existant
     }
 
+    public double getX() {
+        return super.getX();
+    }
+
+    public double getY() {
+        return super.getY();
+    }
+
     @Override
     public String getLocationType() {
         return "Generic";

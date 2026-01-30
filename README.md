@@ -54,3 +54,6 @@ Mise en ordre des fichiers dans des dossiers (algo, asset...) pour avoir une str
 Changement de la manière de typer le graphe. J'avais mis un énum type plutôt que des sous-classes. Maintenant il y a des sous classes correspondantes aux types. (Les tests ont été modifiés)
 
 Optimisation de méthodes
+
+### 30/01/2026 :
+Réalisation complète de SafeLogistic

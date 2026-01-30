@@ -35,6 +35,20 @@ public abstract class LocationNode extends Node {
         this.y = y;
     }
 
+    public void setDesc(String desc) {
+        this.getData().setDesc(desc);
+    }
+
+    public String getDesc() {
+        return this.getData().getDesc();
+    }
+    
+    public String getName() {
+        return this.getData().getName();
+    }
+
+
+
     /* ===== POLYMORPHISME ===== */
 
     /**

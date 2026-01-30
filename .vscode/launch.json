@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "DeliveryVisualizerTest",
+      "request": "launch",
+      "mainClass": "Projet.ui.DeliveryVisualizerTest",
+      "projectName": "JavaUniv_41917fc9"
+    },
+    {
+      "type": "java",
+      "name": "Launch DeliveryVisualizer",
+      "request": "launch",
+      "mainClass": "Projet.ui.DeliveryVisualizerTest",
+      "projectName": "JavaUniv",
+      "vmArgs": "--module-path Projet/javafx-sdk-25/lib --add-modules javafx.controls,javafx.graphics"
+    }
+  ]
+}
