@@ -57,8 +57,8 @@ Réalisation complète de SafeLogistic
 
 JavaFX a été utilisé pour un résultat visuel. Le projet est disponible sur la branche [JavaFX-test](https://github.com/vico530/MonProjet/tree/javaFX-test), qui contient des détails expliquant pourquoi ce code n'a pas été push sur le main.
 
-Voici une vidéo qui illustre une éxécution possible de SafeLogistic avec JavaFX 
-[Regarder la vidéo](Projet/asset/videos/exempleJavaFX.mp4)
+Voici une vidéo qui illustre une éxécution possible de SafeLogistic avec JavaFX
+[Regarder la vidéo](Projet/asset/videos/exempleJavaFX.mp4)  
 **Légende des couleurs des carrés :**
 - 🔵 Bleu : Dépôt
 - 🔴 Rouge : Restaurant
