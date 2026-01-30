@@ -13,3 +13,11 @@ java -cp "$BIN_DIR" Projet.test.CrashTestGraph
 echo ""
 echo "=== Lancement du test TestGraphAlgo ==="
 java -cp "$BIN_DIR" Projet.test.TestGraphAlgo
+
+echo ""
+echo "=== Lancement du test LocationNodeTest ==="
+java -cp "$BIN_DIR" Projet.test.LocationNodeTest
+
+echo ""
+echo "=== Lancement du test DeliveryManagerTest ==="
+java -cp "$BIN_DIR" Projet.test.DeliveryManagerTest
